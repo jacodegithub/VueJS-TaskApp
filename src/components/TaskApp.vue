@@ -16,13 +16,13 @@
 
                 <div class="task-display-section">
                     <h2>Tasks</h2>
-                    <ul class="list-section" v-for="task in tasks" :key="task.id">
-                        <li>
+                    <table class="list-section" v-for="task in tasks" :key="task.id">
+                        <td @click="markTaskComplete(task)">{{ task.completed ? 'Completed' : 'Incomplete' }}</td>
+                        <td>
                             {{ task.title }} {{ task.id }}
-                        </li>
-                        <li>{{ task.completed ? 'Completed' : 'Incomplete' }}</li>
+                        </td>
                         <button @click="deleteTask(task)">Delete</button>
-                    </ul>
+                    </table>
                 </div>
             </div>
     </section>
@@ -37,7 +37,7 @@ const TaskApp = defineComponent({
         return {
             taskTitle: '',
             tasks: [],
-            filterCompleted: false,
+            selectedCompletionStatus: 'all',
         };
     },
     methods: {
@@ -57,11 +57,24 @@ const TaskApp = defineComponent({
             this.tasks = this.tasks.filter(t => t.id !== task.id);
             this.$forceUpdate();
         },
-        filterTasks() {
-            this.tasks = this.tasks.filter((task) => {
-                return this.filterCompleted ? task.completed : true;
+        filteredTasks() {
+            // Filter the tasks based on the selected completion status
+            return this.tasks.filter(task => {
+                switch (this.selectedCompletionStatus) {
+                case 'all':
+                    return true;
+                case 'completed':
+                    return task.completed;
+                case 'incomplete':
+                    return !task.completed;
+                default:
+                    return true;
+                }
             });
         },
+        markTaskComplete(task) {
+            task.completed = !task.completed
+        }
     },
 });
 
