@@ -58,14 +58,14 @@ const TaskApp = defineComponent({
             // Filter the tasks based on the selected completion status
             return this.tasks.filter(task => {
                 switch (this.selectedCompletionStatus) {
-                case 'all':
-                    return true;
-                case 'completed':
-                    return task.completed;
-                case 'incomplete':
-                    return !task.completed;
-                default:
-                    return true;
+                    case 'all':
+                        return true;
+                    case 'completed':
+                        return task.completed;
+                    case 'incomplete':
+                        return !task.completed;
+                    default:
+                        return true;
                 }
             });
         },
@@ -109,6 +109,10 @@ h1 {
     text-transform: uppercase;
     font-size: 2rem;
     font-weight: 600;
+}
+
+label {
+    text-shadow: 1px 1px 2px black;
 }
 
 .task-app {
@@ -186,7 +190,7 @@ select {
     outline: none;
     width: 6rem;
     height: 1.5rem;
-    border-radius: .8rem;
+    border-radius: .3rem;
 }
 
 .mark-button {
