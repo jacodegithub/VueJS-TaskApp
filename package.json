@@ -8,6 +8,7 @@
     "start": "npm run serve",
     "deploy": "gh-pages --dist dist",
     "build": "vite build",
+    "predeploy": "npm run build",
     "preview": "vite preview"
   },
   "dependencies": {
