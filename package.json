@@ -4,12 +4,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "dev": "vite",
-    "start": "npm run serve",
-    "deploy": "gh-pages --dist dist",
     "build": "vite build",
-    "predeploy": "npm run build",
-    "preview": "vite preview"
+    "deploy": "gh-pages -d dist"
   },
   "dependencies": {
     "vue": "^3.3.4"
