@@ -14,9 +14,6 @@ import TaskApp from './components/TaskApp.vue';
 </template>
 
 <style scoped>
-header {
-  line-height: 1.5;
-}
 
 .logo {
   display: block;
@@ -32,12 +29,6 @@ header {
 
   .logo {
     margin: 0 2rem 0 0;
-  }
-
-  header .wrapper {
-    display: flex;
-    place-items: flex-start;
-    flex-wrap: wrap;
   }
 }
 </style>
